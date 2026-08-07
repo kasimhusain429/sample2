@@ -30,10 +30,10 @@ function FloatingImages() {
 
   return (
     <group ref={groupRef}>
-      <DreiImage url="/images/craftsmanship_showcase.png" position={[-width * 0.1, 0, 0]} scale={[width * 0.5, width * 0.35, 1]} />
-      <DreiImage url="/images/artisan_craft.png" position={[width * 0.25, -height * 0.6, 1]} scale={[width * 0.35, width * 0.45, 1]} />
-      <DreiImage url="/images/floor_stool.png" position={[-width * 0.3, -height * 1.1, 0.5]} scale={[width * 0.3, width * 0.3, 1]} />
-      <DreiImage url="/images/vintage_kantha.png" position={[width * 0.15, -height * 1.6, -0.5]} scale={[width * 0.45, width * 0.3, 1]} />
+      <DreiImage url="/images/craftsmanship_showcase.png" position={[-width * 0.1, 0, 0]} scale={[width * 0.5, width * 0.35]} />
+      <DreiImage url="/images/artisan_craft.png" position={[width * 0.25, -height * 0.6, 1]} scale={[width * 0.35, width * 0.45]} />
+      <DreiImage url="/images/floor_stool.png" position={[-width * 0.3, -height * 1.1, 0.5]} scale={[width * 0.3, width * 0.3]} />
+      <DreiImage url="/images/vintage_kantha.png" position={[width * 0.15, -height * 1.6, -0.5]} scale={[width * 0.45, width * 0.3]} />
     </group>
   );
 }
