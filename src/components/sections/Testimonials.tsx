@@ -28,7 +28,8 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionWrapperRef = useRef<HTMLElement>(null);
+  const pinContainerRef = useRef<HTMLDivElement>(null);
   const scrollContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function Testimonials() {
           x: () => -(container.scrollWidth - window.innerWidth),
           ease: "none",
           scrollTrigger: {
-            trigger: sectionRef.current,
+            trigger: pinContainerRef.current,
             start: "top top",
             end: () => `+=${container.scrollWidth}`,
             pin: true,
@@ -48,36 +49,40 @@ export default function Testimonials() {
           }
         });
       }
-    }, sectionRef);
+    }, sectionWrapperRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={sectionRef} className="h-screen bg-card text-card-foreground flex items-center overflow-hidden">
-      <div className="absolute top-24 left-12 z-10">
-        <h2 className="font-heading text-4xl md:text-6xl text-foreground">What Our Clients Say</h2>
-        <p className="text-muted-foreground mt-2 max-w-md">Trusted by customers worldwide for our quality and authentic Rajasthani designs.</p>
+    <section ref={sectionWrapperRef} className="w-full bg-card text-card-foreground">
+      <div ref={pinContainerRef} className="h-[100dvh] w-full flex flex-col justify-center overflow-hidden relative">
+        <div className="w-full px-6 md:absolute md:top-24 md:left-12 md:z-10 mt-8 md:mt-0 shrink-0">
+        <h2 className="font-heading text-3xl md:text-6xl text-foreground">What Our Clients Say</h2>
+        <p className="text-sm md:text-base text-muted-foreground mt-2 max-w-md">Trusted by customers worldwide for our quality and authentic Rajasthani designs.</p>
       </div>
 
-      <div ref={scrollContainer} className="flex gap-8 px-[20vw] pt-32 w-fit h-auto items-center">
+      <div className="w-full flex items-center flex-1 md:flex-none">
+        <div ref={scrollContainer} className="flex gap-6 md:gap-8 px-6 md:px-[20vw] md:pt-32 w-fit h-auto items-stretch py-4">
         {testimonials.map((t, i) => (
           <div 
             key={i} 
-            className="w-[350px] md:w-[450px] flex-shrink-0 bg-background border border-border p-8 rounded-3xl shadow-lg relative"
+            className="w-[85vw] sm:w-[350px] md:w-[450px] flex-shrink-0 bg-background border border-border p-5 md:p-8 rounded-3xl shadow-lg relative flex flex-col"
           >
-            <div className="flex gap-1 mb-6 text-primary">
-              {[1,2,3,4,5].map(star => <Star key={star} size={20} fill="currentColor" />)}
+            <div className="flex gap-1 mb-4 md:mb-6 text-primary">
+              {[1,2,3,4,5].map(star => <Star key={star} className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" />)}
             </div>
-            <p className="text-lg md:text-xl font-sans text-foreground/80 leading-relaxed mb-8">
+            <p className="text-base md:text-xl font-sans text-foreground/80 leading-relaxed mb-6 md:mb-8 flex-1">
               &quot;{t.text}&quot;
             </p>
-            <div>
-              <p className="font-heading text-xl font-bold">{t.name}</p>
-              <p className="text-sm text-muted-foreground">{t.location}</p>
+            <div className="mt-auto">
+              <p className="font-heading text-lg md:text-xl font-bold">{t.name}</p>
+              <p className="text-xs md:text-sm text-muted-foreground">{t.location}</p>
             </div>
           </div>
         ))}
+        </div>
+      </div>
       </div>
     </section>
   );
