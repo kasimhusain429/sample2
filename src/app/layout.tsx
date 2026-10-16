@@ -8,8 +8,8 @@ const kanit = Kanit({
 });
 
 export const metadata: Metadata = {
-  title: "Jack -- 3D Creator",
-  description: "Portfolio of Jack, a 3D Creator",
+  title: "Kasim -- 3D Creator",
+  description: "Portfolio of Kasim, a 3D Creator",
 };
 
 export default function RootLayout({
