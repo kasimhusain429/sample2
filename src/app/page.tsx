@@ -1,23 +1,17 @@
-import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
-import Collection from "@/components/sections/Collection";
-import Showcase from "@/components/sections/Showcase";
-import Testimonials from "@/components/sections/Testimonials";
-import Stats from "@/components/sections/Stats";
-import Cta from "@/components/sections/Cta";
-import Footer from "@/components/sections/Footer";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { MarqueeSection } from "@/components/sections/MarqueeSection";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { ServicesSection } from "@/components/sections/ServicesSection";
+import { ProjectsSection } from "@/components/sections/ProjectsSection";
 
 export default function Home() {
   return (
-    <main className="w-full h-full overflow-hidden">
-      <Hero />
-      <About />
-      <Collection />
-      <Showcase />
-      <Testimonials />
-      <Stats />
-      <Cta />
-      <Footer />
+    <main className="overflow-x-clip bg-[#0C0C0C]">
+      <HeroSection />
+      <MarqueeSection />
+      <AboutSection />
+      <ServicesSection />
+      <ProjectsSection />
     </main>
   );
 }

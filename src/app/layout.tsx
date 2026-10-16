@@ -1,21 +1,15 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Kanit } from "next/font/google";
 import "./globals.css";
-import LenisProvider from "@/components/LenisProvider";
 
-const playfair = Playfair_Display({
-  variable: "--font-heading",
+const kanit = Kanit({
   subsets: ["latin"],
-});
-
-const inter = Inter({
-  variable: "--font-sans",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
-  title: "Priva International | Exclusive Vintage Kantha & Bed Covers",
-  description: "Manufacturing, supplying and exporting a huge assortment of Vintage Kantha, Cushion Cover, Bed Throw, Designer Bedspread, Block Printed Bed Covers, and more from Jaipur, Rajasthan.",
+  title: "Jack -- 3D Creator",
+  description: "Portfolio of Jack, a 3D Creator",
 };
 
 export default function RootLayout({
@@ -24,14 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${playfair.variable} scroll-smooth antialiased`}
-    >
-      <body className="min-h-full flex flex-col font-sans bg-background text-foreground selection:bg-primary/20">
-        <LenisProvider>{children}</LenisProvider>
-      </body>
+    <html lang="en">
+      <body className={kanit.className}>{children}</body>
     </html>
   );
 }
-
